@@ -11,17 +11,17 @@ class App extends React.Component{
   handleSearchInputChange = (e) => {
       const target = e.target;
       const value = target.value;
-      // const name = target.name;
-
       this.setState({searchParam: value})
-      console.log(this.state.searchParam);
-      // this.props.changeCredentials(name, value)
+  }
+
+  handleSearchClick = () => {
+    console.log(`searcing for ${this.state.searchParam}`);
   }
 
     render(){
         return(
             <div className='App'>
-                <Search handleInputChange={this.handleSearchInputChange}/>
+                <Search handleInputChange={this.handleSearchInputChange} handleClick={this.handleSearchClick}/>
             </div>
         );
     }
