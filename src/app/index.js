@@ -1,11 +1,14 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Search from "./components/search/search.jsx"
+import searchOMDB from './helperFunctions/searchOMDB';
+import Results from './components/results/results';
 
 class App extends React.Component{
 
   state = {
-    searchParam: ""
+    searchParam: "",
+    searchResults: []
   }
 
   handleSearchInputChange = (e) => {
@@ -14,14 +17,20 @@ class App extends React.Component{
       this.setState({searchParam: value})
   }
 
-  handleSearchClick = () => {
-    console.log(`searcing for ${this.state.searchParam}`);
+  handleSearchClick = async () => {
+     let result = await searchOMDB(this.state.searchParam);
+      this.setState({searchResults: result});
+  }
+
+  handeResultClick = async () => {
+      console.log('clicked a thing');
   }
 
     render(){
         return(
             <div className='App'>
                 <Search handleInputChange={this.handleSearchInputChange} handleClick={this.handleSearchClick}/>
+                {this.state.searchResults.map(i => <Results key={i} imdb={i.imdbid} title={i.title} handleClick={this.handeResultClick}/>)}
             </div>
         );
     }
