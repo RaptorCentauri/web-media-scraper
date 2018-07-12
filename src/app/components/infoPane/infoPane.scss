@@ -1,8 +1,9 @@
 #info-pane{
+    grid-area: 'info';
+
     // width: 75vw;
-    // height: 100vh;
-    background-color: bisque;
-    grid-column: 2;
+    height: 100vh;
+    background-color: rgb(5, 207, 113);
 
     // display: flex;
     // justify-content: center;

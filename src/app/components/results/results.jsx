@@ -2,7 +2,6 @@ import React from 'react';
 import './results.scss';
 
 const Results = (props) =>
-<div id='search-results'>
     <div id="mini-result" onClick={props.handleClick}>
         <img src={props.poster} alt="" srcset=""/>
         <div id="mini-info">
@@ -11,6 +10,5 @@ const Results = (props) =>
             <h5>Type: {props.type}</h5>
         </div>
     </div>
-</div>
 
 export default Results

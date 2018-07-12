@@ -1,9 +1,6 @@
 #search-results{
-    grid-column: 1;
-//     grid-row: 2;
-//     background-color: darkkhaki;
-//     height: 600px;
-//     width: 200px;
+        grid-area: 'results';
+    width: 25vw;
 
     #mini-result{
         // grid-column: 1;

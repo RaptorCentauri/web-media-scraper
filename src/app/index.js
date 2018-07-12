@@ -36,8 +36,10 @@ class App extends React.Component{
         return(
             <div className='App'>
                 <Search handleInputChange={this.handleSearchInputChange} handleClick={this.handleSearchClick}/>
+                <div id='search-results'>
                 {this.state.searchResults.map(i => <Results  key={i.imdbid} title={i.title} type={i.type.charAt(0).toUpperCase()+i.type.slice(1)} year={i.year} poster={i.poster} handleClick={this.handeResultClick.bind(this, i.imdbid)}/>)}
-                {this.state.info ? 
+                </div>
+                {/* {this.state.info ?  */}
                 <InfoPane 
                     name={this.state.info.name}
                     plot={this.state.info.plot}
@@ -46,8 +48,8 @@ class App extends React.Component{
                     director={this.state.info.director}
                     production={this.state.info.production}
                 />
-                : false
-                }
+                {/* : false */}
+                {/* } */}
             </div>
         );
     }

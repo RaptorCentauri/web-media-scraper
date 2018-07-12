@@ -1,12 +1,12 @@
 #search-div{
-    grid-column: 1;
-    grid-row: 1;
+    grid-area: 'search';
     display: flex;
     align-items: center;
     justify-content: center;
     background-color: rgb(160, 160, 160);
     padding: 10px;
     height: 30px;
+    width: 25vw;
 
     #search-field{
         width: 95%;

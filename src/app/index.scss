@@ -1,4 +1,9 @@
 .App{
     display: grid;
-    grid-template-columns: 25vw auto;
+
+    grid-template-areas: 
+    'search info' 
+    'results info';
 }
+
+
