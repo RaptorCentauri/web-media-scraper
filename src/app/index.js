@@ -1,9 +1,10 @@
 import React from 'react';
 import {render} from 'react-dom';
 import Search from "./components/search/search.jsx"
-import searchOMDB from './helperFunctions/searchOMDB';
-import Results from './components/results/results';
-import InfoPane from './components/infoPane/infoPane';
+import searchOMDB from './helperFunctions/searchOMDB.js';
+import Results from './components/results/results.jsx';
+import InfoPane from './components/infoPane/infoPane.jsx';
+import './index.scss'
 
 import getById from './helperFunctions/getByID';
 
@@ -29,15 +30,13 @@ class App extends React.Component{
   handeResultClick = async (id) => {
       let result = await getById(id);
       this.setState({info: result});
-    //   console.log(this.state.info);
-      
   }
 
     render(){
         return(
             <div className='App'>
                 <Search handleInputChange={this.handleSearchInputChange} handleClick={this.handleSearchClick}/>
-                {this.state.searchResults.map(i => <Results  key={i.imdbid} title={i.title} handleClick={this.handeResultClick.bind(this, i.imdbid)}/>)}
+                {this.state.searchResults.map(i => <Results  key={i.imdbid} title={i.title} type={i.type.charAt(0).toUpperCase()+i.type.slice(1)} year={i.year} poster={i.poster} handleClick={this.handeResultClick.bind(this, i.imdbid)}/>)}
                 {this.state.info ? 
                 <InfoPane 
                     name={this.state.info.name}

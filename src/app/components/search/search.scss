@@ -1,0 +1,37 @@
+#search-div{
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(160, 160, 160);
+    padding: 10px;
+    height: 30px;
+
+    #search-field{
+        width: 95%;
+        height: 90%;
+        background-color: white;
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-left: 10px;
+        padding-right: 5px;
+
+        input{
+            border: none;
+            height: 90%;
+            width: 90%;
+            background: transparent;
+            &:focus{
+                outline: none;
+            }
+        }
+    }
+    // input{
+    //     border-radius: 20px;
+    //     border: none;
+    //     height: 50%;
+    // }
+}
