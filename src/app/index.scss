@@ -1,9 +1,28 @@
 .App{
-    display: grid;
+    display: flex;
+    flex-direction: row;
 
-    grid-template-areas: 
-    'search info' 
-    'results info';
+    #left-box{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #result-box{
+        display: flex;
+        flex-direction: column;
+        // height: 100px;
+        overflow: auto;
+        background-color: burlywood;
+    }
+
+
+    // display: grid;
+    // grid-template-rows: 30px auto;
+    // grid-template-columns: auto; 
+
+    // grid-template-areas: 
+    // 'search | info' 
+    // 'results | info';
 }
 
 

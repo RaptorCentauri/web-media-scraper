@@ -1,11 +1,20 @@
 #info-pane{
     grid-area: 'info';
-
-    // width: 75vw;
     height: 100vh;
     background-color: rgb(5, 207, 113);
 
-    // display: flex;
-    // justify-content: center;
-    // align-items: center;
+    #info-top{
+        background-color: rgb(240, 71, 169);
+        display: flex;
+        flex-direction: row;
+        // height: auto;
+        // width: auto;
+    }
+
+    #info-bottom{
+        background-color: cornsilk;
+        height: auto;
+        width: auto;
+    }
+
 }

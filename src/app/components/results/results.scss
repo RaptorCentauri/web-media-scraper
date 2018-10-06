@@ -1,6 +1,10 @@
-#search-results{
-        grid-area: 'results';
-    width: 25vw;
+// #search-results{
+//         margin: 0;
+//         padding: 0;
+//         grid-area: 'results';
+//         width: 25vw;
+//         height: 25vw;
+//         background-color: darkviolet;
 
     #mini-result{
         // grid-column: 1;
@@ -24,4 +28,4 @@
             justify-content: space-evenly;
         }
     }
-}
+// }
