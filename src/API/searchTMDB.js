@@ -13,7 +13,6 @@ const searchTMDB = async (search) => {
   }
 
 
-    let apiKey = `4908d47c6d783b91c1720d4e471fd067`;
     let response = await axios.get(`https://api.themoviedb.org/3/search/movie`, searchParms)
 
     let results = response.data.results

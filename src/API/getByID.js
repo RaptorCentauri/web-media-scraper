@@ -8,7 +8,6 @@ const getById = async (id) =>{
       let searchParms = {
         params:{
           api_key: TMDBCredentials.key,
-          // api_key: `4908d47c6d783b91c1720d4e471fd067`,
           language: `en-US`,
           append_to_response: `credits`
         }
