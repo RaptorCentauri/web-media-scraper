@@ -1,14 +1,21 @@
 import React from 'react';
 import './results.scss';
 
-const Results = (props) =>
-    <div id="mini-result" onClick={props.handleClick}>
-        <img src={props.poster} alt="" srcset=""/>
-        <div id="mini-info">
-            <h5>Title: {props.title}</h5>
-            <h5>Release Date: {props.year}</h5>
-            <h5>Type: {props.type}</h5>
-        </div>
-    </div>
+
+class Results extends React.Component{
+  constructor(props){
+    super(props)
+  }
+
+
+  render(){
+    return(
+      <div id="result-section">
+        {this.props.results.map((e)=> <img className="result-pic"  onClick={() => this.props.handleClick(e.id)} src={e.poster} alt="" srcSet=""/>)}
+      </div>
+    )
+  }
+}
+
 
 export default Results

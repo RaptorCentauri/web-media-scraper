@@ -1,0 +1,39 @@
+
+#cast-section{
+  grid-area: cast;
+  display: flex;
+  flex-direction: row;
+  overflow-y: auto;
+  align-items: center;
+
+  @media screen and (max-width: 800px) {
+    display: none;
+  }
+
+  .cast-pane{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: 1fr;
+    grid-template-areas: "cast-grid";
+    margin: 0px 15px;
+    background-color: red;
+
+
+    .cast-pic{
+      grid-area: cast-grid;
+      box-shadow: 7.5px 7.5px 7.5px rgb(90, 90, 90);
+    }
+
+    .cast-actor{
+      grid-area: cast-grid;
+      align-self: end;
+      height: 45px;
+      background-color: rgba(209, 205, 199, 0.73);
+    }
+
+
+  }
+
+
+
+}

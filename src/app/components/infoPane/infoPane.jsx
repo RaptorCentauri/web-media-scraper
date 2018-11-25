@@ -3,23 +3,12 @@ import './InfoPane.scss';
 
 const InfoPane = (props) =>
     <div id='info-pane'>
-        <div id='info-top'>
-                <img src={props.poster} alt="" />
-            <div id='info-top-text'>
-                <h2>Name: {props.name}</h2>
-                <h2>Director: {props.director}</h2>
-            </div>
+        <img id='info-pic' src={props.poster} alt="" />
 
-        </div>
-        <div id='info-bottom'>
-            <h2>Plot: {props.plot}</h2>
-            <h2>Rating: {props.rated}</h2>
-            <h2>Runtime: {props.runtime}</h2>
-            <h2>Release Date: {props.released}</h2>
-            <h2>Production Company: {props.production}</h2>
-        </div>
+          <h1 id='info-title'>{props.title}</h1>
+          <h6 id='info-director'>Directed by {props.director}</h6>
 
+          <h5 id='info-plot'>{props.plot}</h5>
     </div>
 
 export default InfoPane
-

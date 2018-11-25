@@ -1,12 +1,11 @@
-import React from 'react';
-import {render} from 'react-dom';
-import Search from "./components/search/search.jsx"
-import searchOMDB from './helperFunctions/searchOMDB.js';
-import Results from './components/results/results.jsx';
-import InfoPane from './components/infoPane/infoPane.jsx';
+import "babel-polyfill";
+
 import './index.scss'
 
-import getById from './helperFunctions/getByID';
+import {render} from 'react-dom';
+import React from 'react';
+import {CastPane, InfoPane, Results, Search} from './components/index'
+import {getByID, searchTMDB} from '../API/index'
 
 class App extends React.Component{
 
@@ -16,49 +15,57 @@ class App extends React.Component{
     info:false,
   }
 
+  componentWillMount = async () => {
+    let result = await getByID(862);
+     this.setState({info: result});
+
+     this.setState({searchParam: 'Toy Story'})
+
+  }
+
+
+  componentDidUpdate = async () => {
+    let result = await searchTMDB(this.state.searchParam);
+     this.setState({searchResults: result});
+  }
+
   handleSearchInputChange = (e) => {
       const target = e.target;
       const value = target.value;
-      this.setState({searchParam: value})
+
+      if(value){
+        this.setState({searchParam: value})
+      }
+
   }
 
   handleSearchClick = async () => {
-     let result = await searchOMDB(this.state.searchParam);
+     let result = await searchTMDB(this.state.searchParam);
       this.setState({searchResults: result});
   }
 
   handeResultClick = async (id) => {
-      let result = await getById(id);
+      console.log('I WAS CLICKED!', id);
+      let result = await getByID(id);
       this.setState({info: result});
-      console.log(this.state.info);
-      
   }
-
 
     render(){
         return(
-            <div className='App'>
-                <div id='left-box'>
-                    <Search handleInputChange={this.handleSearchInputChange} handleClick={this.handleSearchClick}/>
-                    <div id='result-box'>
-                        {this.state.searchResults.map(i => <Results  key={i.imdbid} title={i.title} type={i.type.charAt(0).toUpperCase()+i.type.slice(1)} year={i.year} poster={i.poster} handleClick={this.handeResultClick.bind(this, i.imdbid)}/>)}
-                    </div>
-                </div>
-                <div id='right-box'>
-                {/* {this.state.info ?  */}
-                <InfoPane 
-                    poster={this.state.info.poster}
-                    name={this.state.info.name}
-                    plot={this.state.info.plot}
-                    rated={this.state.info.rated}
-                    runtime={this.state.info.runtime}
-                    director={this.state.info.director}
-                    production={this.state.info.production}
-                    released={String(this.state.info.released)}
-                />
-                {/* : false */}
-                {/* } */}
-                </div>
+            <div  className='App'>
+                 <Search handleInputChange={this.handleSearchInputChange} handleClick={this.handleSearchClick.bind(this)}/>
+
+                 <Results results={this.state.searchResults} handleClick={this.handeResultClick}/>
+
+
+                  <InfoPane
+                      poster={this.state.info.poster}
+                      title={this.state.info.title}
+                      plot={this.state.info.overview}m
+                      director={this.state.info.director}
+                  />
+
+                {this.state.info.cast && <CastPane cast={this.state.info.cast}/>}
 
             </div>
         );
