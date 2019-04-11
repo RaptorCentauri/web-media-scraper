@@ -1,11 +1,13 @@
 .App{
   height: 100vh;
   display: grid;
+  color: white;
 
   grid-template-columns: 1fr 5fr;
   grid-template-rows: 50px calc(100vh/1.5) auto;
 
-  // background-color: pink;
+  // background-color: rgb(87, 87, 87);
+   background-image: linear-gradient(rgb(45, 45, 45), rgb(65, 65, 65));
 
   grid-template-areas:
   "search ."

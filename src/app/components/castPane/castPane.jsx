@@ -13,7 +13,7 @@ class CastPane extends React.Component{
         {this.props.cast.map((e)=>
           <div className='cast-pane'>
               <img className='cast-pic' src={e.profilePic} alt="" />
-              <div className='cast-actor'>{e.name} as {e.character}</div>
+              <h5 className='cast-actor'>{e.name}</h5>
           </div>
         )}
 

@@ -3,9 +3,8 @@ import axios from 'axios'
 import TMDBCredentials from './TMDBCredentials';
 
 
-
 const getById = async (id) =>{
-      let searchParms = {
+      let searchParams = {
         params:{
           api_key: TMDBCredentials.key,
           language: `en-US`,
@@ -13,12 +12,10 @@ const getById = async (id) =>{
         }
       }
 
-      let response = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, searchParms)
+      let response = await axios.get(`https://api.themoviedb.org/3/movie/${id}`, searchParams)
 
       let cast = response.data.credits.cast
       let crew = response.data.credits.crew
-
-
 
       let castArray = [];
       let crewObj = {};
@@ -26,12 +23,14 @@ const getById = async (id) =>{
 
       for (let castMember of cast) {
         if(castMember.profile_path){
-        let newCastMember = {
-          name: castMember.name,
-          character: castMember.character,
-          profilePic: `http://image.tmdb.org/t/p/w185${castMember.profile_path}`
-        }
-        castArray.push(newCastMember)
+
+          let newCastMember = {
+            name: castMember.name,
+            character: castMember.character,
+            profilePic: `http://image.tmdb.org/t/p/w200${castMember.profile_path}`
+          }
+
+          castArray.push(newCastMember)
         }
       }
 
@@ -46,7 +45,6 @@ const getById = async (id) =>{
 
 
       }
-
 
       let infoObject = {
         title: response.data.title,
